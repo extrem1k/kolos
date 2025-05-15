@@ -115,7 +115,7 @@ public class TravelService (IConfiguration config) : IdbService
          sql = """
                SELECT S.Id, S.FirstName, S.LastName, S.Age, G.Id, G.Name FROM Student S left join 
                GroupAssignment GA on GA.Student_Id= S.Id left join [Group] G on G.Id = GA.Group_Id
-               where @searchName like '%' + @searchName + '%' or @searchName is null;
+               where S.FirstName like '%' + @searchName + '%' or @searchName is null;
                  
 """;
        
